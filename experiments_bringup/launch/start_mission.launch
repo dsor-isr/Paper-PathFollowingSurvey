@@ -5,6 +5,10 @@
     <arg name="path_type"       default="bernoulli" /> <!-- Accepted: bernoulli, lawn_mower -->
     <arg name="controller_type" default="aguiar" />    <!-- Accepted: aguiar, -->
 
+    <!-- UTM coordinates where the vehicle starts in the map (used to create a path centered around these coordinates) -->
+    <arg name="utm_north"       default="4290794.432828876" />
+    <arg name="utm_east"        default="491936.56077393395" />
+
     <!-- Launch the node that call the services to start/stop a path following mission -->
     <node pkg="experiments_bringup" type="mission_launcher.py" name="MissionLauncher" respawn="false" output="screen">
         <param name="vehicle_name"      value="$(arg name)"/>
