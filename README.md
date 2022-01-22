@@ -123,13 +123,13 @@ roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bern
 <Summary>Supported Controllers:</Summary>
 <details>
 	<ul>
-		<li>samson</li>
-		<li>lapierre</li>
-		<li>aguiar</li>
-		<li>fossen</li>
-		<li>brevik</li>
-		<li>romulo</li>
-		<li>pramod</li>
+		<li>samson (method 1)</li>
+		<li>lapierre (method 2)</li>
+		<li>fossen (method 3)</li>
+		<li>brevik (method 4)</li>
+		<li>aguiar (method 6)</li>
+		<li>romulo (method 6, but control surge and sway and leaves yaw as degree of freedom)</li>
+		<li>pramod (like fossen, but with integral term)</li>
 	</ul>
 </details>
 
