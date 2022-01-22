@@ -99,9 +99,9 @@ catkin build
 
 ### Run a simulation experiment
 
-- Start the 3D gazebo simulation along with all the control and navigation algorithms. The 2 supported vehicles in this demo are 'myellow' and 'mvector'. The latter can be actuated in 'surge', 'sway' and 'yaw/yaw-rate', while the 'myellow' vehicle can only be controlled in 'surge' and 'yaw/yaw-rate'.
+- Start the 3D gazebo simulation along with all the control and navigation algorithms. The 2 supported vehicles in this demo are 'myellow' and 'mvector'. The latter can be actuated in 'surge', 'sway' and 'yaw/yaw-rate', while the 'myellow' vehicle can only be controlled in 'surge' and 'yaw/yaw-rate'. If gazebo visual mode is too heavy, you can disable the 3D simulation gui 🤓!
 ```
-roslaunch experiments_bringup start_gazebo_simulation.launch name:=myellow
+roslaunch experiments_bringup start_gazebo_simulation.launch name:=myellow gui:=true
 ```
 
 - Start a pre-defined path following mission. The name of the vehicle must match the previous one. The supported paths in this demo are 'bernoulli' and 'lawn_mower'.
@@ -111,25 +111,31 @@ roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bern
 
 <Summary>Supported Vehicles:</Summary>
 <details>
-	- myellow
-	- mvector
+	<ul>
+		<li>myellow</li>
+		<li>mvector</li>
+	</ul>
 </details>
 
 <Summary>Supported Controllers:</Summary>
 <details>
-- samson 
-- lapierre
-- aguiar
-- fossen
-- brevik
-- romulo
-- pramod
+	<ul>
+		<li>samson</li>
+		<li>lapierre</li>
+		<li>aguiar</li>
+		<li>fossen</li>
+		<li>brevik</li>
+		<li>romulo</li>
+		<li>pramod</li>
+	</ul>
 </details>
 
 <Summary>Supported Paths:</Summary>
 <details>
-- lawn_mower
-- bernoulli
+	<ul>
+		<li>bernoulli</li>
+		<li>lawn_mower</li>
+	</ul>
 </details>
 
 ### License

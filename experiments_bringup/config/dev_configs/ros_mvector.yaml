@@ -156,7 +156,7 @@ controls/path_following:
           y: "/mvector/current/y"
 
       # Publish info for plots
-      pfollowing_debug: "mvector/pfollowing/debug"
+      pfollowing_debug: "/mvector/pfollowing/debug"
     # Define here the service names to switch between controllers 
     services:
       # Service names to start and stop the path following algorithm
