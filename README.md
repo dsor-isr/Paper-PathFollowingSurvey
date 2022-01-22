@@ -109,11 +109,14 @@ roslaunch experiments_bringup start_gazebo_simulation.launch name:=myellow
 roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bernoulli controller_type:=aguiar
 ```
 
-Supported Vehicles:
-- myellow
-- mvector
+<Summary>Supported Vehicles:</Summary>
+<details>
+	- myellow
+	- mvector
+</details>
 
-Supported Controllers:
+<Summary>Supported Controllers:</Summary>
+<details>
 - samson 
 - lapierre
 - aguiar
@@ -121,10 +124,13 @@ Supported Controllers:
 - brevik
 - romulo
 - pramod
+</details>
 
-Supported Paths:
+<Summary>Supported Paths:</Summary>
+<details>
 - lawn_mower
 - bernoulli
+</details>
 
 ### License
 This repository is open-sourced under the MIT license. See the [LICENSE](LICENSE) file for details.
