@@ -110,15 +110,6 @@ path_following:
       k3: 0.3
       theta: 0.8
       k_delta: 1.0
-    marcelo:
-      delta: -1.0
-      kx: 0.5
-      ky: 0.5
-      kz: 0.5
-      k_pos: 2.0
-      k_currents: 0.2
-      rd: [0.0, 0.0, 1.0]
-      d: [0.0, 0.0, 0.0]
     aguiar:
       delta: -1.0
       kx: 0.5

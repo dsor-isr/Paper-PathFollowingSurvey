@@ -1,12 +1,15 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="vehicle_name"  default="myellow"/>   <!-- Accepted: myellow, mvector-->
-    <arg name="path_type"     default="bernoulli"/> <!-- Accepted: bernoulli, lawn_mower -->
+    <arg name="vehicle_name"    default="myellow" />   <!-- Accepted: myellow, mvector-->
+    <arg name="path_type"       default="bernoulli" /> <!-- Accepted: bernoulli, lawn_mower -->
+    <arg name="controller_type" default="aguiar" />    <!-- Accepted: aguiar, -->
 
     <!-- Launch the node that call the services to start/stop a path following mission -->
-    <node pkg="experiments_bringup" type="example1.py" name="Example1" respawn="false" output="screen">
-        <param name="vehicle_name" value="$(arg vehicle_name)"/>
+    <node pkg="experiments_bringup" type="mission_launcher.py" name="MissionLauncher" respawn="false" output="screen">
+        <param name="vehicle_name"      value="$(arg vehicle_name)"/>
+        <param name="path_type"         value="$(arg path_type)" />
+        <param name="controller_type"   value="$(arg controller_type)" />
     </node>
 
 </launch>

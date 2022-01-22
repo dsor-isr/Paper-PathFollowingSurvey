@@ -126,15 +126,6 @@ path_following:
       kz: 0.5
       k_pos: 0.5
       k_currents: 0.5
-    marcelo:
-      delta: -1.0
-      kx: 0.8
-      ky: 0.8
-      kz: 0.5
-      k_pos: 2.0
-      k_currents: 0.2
-      rd: [0.0, 0.0, 1.0]
-      d: [-2.0, 2.0, 0.0]
     romulo:
       ke: [0.05, 0.0, 0.0, 0.05]
       kz: 0.2

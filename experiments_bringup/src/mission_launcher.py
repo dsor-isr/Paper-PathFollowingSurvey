@@ -1,47 +1,45 @@
 #!/usr/bin/env python3
 import time
 import rospy
-from controllers import *
-from paths import *
-
-# Services used to start/stop and switch between different path following algorithms
-# and services to create paths for the path following algorithms to follow
-services_required = [
-        '/PFStart', 
-        '/PFStop', 
-        '/PFUpdateGains', 
-        '/ResetPath', 
-        '/SetConstVdRabbit', 
-        '/SetConstVdVehicle', 
-        '/SetMode', 
-        '/SpawnArc2DPath', 
-        '/SpawnBernoulliPath', 
-        '/SpawnCircle2DPath', 
-        '/SpawnLinePath']
+import switch_controllers as ctl
+import switch_paths as pth
 
 # The entry point of the program
 if __name__ == "__main__":
     
-    # Get the name of the vehicle being used
+    # Get the name of the vehicle being used, controller and path from the ROS parameter server
     vehicle_name = rospy.get_param('vehicle_name', 'myellow')
+    path_type = rospy.get_param('path_type', 'bernoulli')
+    controller_type = rospy.get_param('controller_type', 'aguiar')
     
-    # Wait for the required services to start
-    for service in services_required:
+    # Wait for the required path services to start
+    for service in pth.path_services_required:
         rospy.wait_for_service(vehicle_name + service)
 
-    # Reset the current path in memory
-    reset_path(vehicle_name)
+    # Wait for the required controller services to start
+    for controller_name, service in ctl.controllers_medusa_dic.items():
+        rospy.wait_for_service(vehicle_name + service)
 
-    # Spawn a lawnmower path at 30 m of altitude
-    spawn_lawn_mower(-30, vehicle_name)
-    #spawn_bernoulli(30, 4290841.0, 491926.0,-30, vehicle_name)
+    # Reset the current path in memory (start with a clean canvas)
+    pth.reset_path(vehicle_name)
+
+    # Spawn a path for the vehicle to follow
+    if path_type == 'lawn_mower':
+        pth.spawn_lawn_mower(0.0, vehicle_name)
+    elif path_type == 'bernoulli':
+        pth.spawn_bernoulli(30, 4290841.0, 491926.0,-30, vehicle_name)
+    else:
+        rospy.WARN('Desired path only supports lawn_mower or bernoulli in this demo!')
+        rospy.signal_shutdown('Desired path not supported')
 
     # Ask for the desired speed for the vehicle
-    spawn_const_speed(0.5, vehicle_name)
+    pth.spawn_const_speed(0.5, vehicle_name)
 
-    # Wait for the required controller services to start
-    for controller in controllers_medusa_required:
-        rospy.wait_for_service(vehicle_name + '/' + controller)
+    # Check if the required controller is in the controllers supported list:
+    if controller_type not in ctl.controllers_medusa_dic.keys():
+        rospy.WARN('Desired path only supports the following controller_type:')
+        rospy.WARN(ctl.controllers_medusa_dic.keys())
+        rospy.signal_shutdown('Desired controller not supported')
 
     # Ask for the desired controller for this experiment
-    spawn_medusa_controller('Marcelo', vehicle_name)  
+    ctl.spawn_medusa_controller(controller_type, vehicle_name)  
