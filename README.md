@@ -1,6 +1,9 @@
 # Paper: Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I
 This repository implements a simulation playground for performing path following experiments with the Medusa clas of marine vehicles. It implements the algorithms described in the survey paper "Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I".
 
+The equivalent matlab control toolbox developed in the scope of this paper is available at [Github Matlab-toolbox](https://github.com/hungrepo/path-following-Matlab/tree/master/PF-toolbox).
+
+
 <p align = "center">
 <img src="img/Demo1.gif" width = "426" height = "240" border="5" />
 </p>
@@ -137,6 +140,17 @@ roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bern
 		<li>lawn_mower</li>
 	</ul>
 </details>
+
+### Implementation Structure
+The C++ code that implements the controllers logic can be found at the package:
+```
+medusa_base/medusa_control/outer_loops_controllers/path_following
+```
+
+The C++ code that implements the paths equations can be found at the package:
+```
+medusa_base/medusa_planning/dsor_paths
+```
 
 ### License
 This repository is open-sourced under the MIT license. See the [LICENSE](LICENSE) file for details.
