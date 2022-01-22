@@ -1,4 +1,21 @@
 # Paper: Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I
+This repository implements a simulation playground for performing path following experiments with the Medusa clas of marine vehicles. It implements the algorithms described in the survey paper "Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I".
+
+### Ackowledgment
+If you are using this code research and development for your publication, please cite:
+
+```
+@inproceedings{Manhaes_2016,
+	doi = {},
+	url = {},
+	year = 2022,
+	month = {},
+	publisher = {{IEEE}},
+	author = {Hung Tuan and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and Luis Sebastião and António Pascoal},
+	title = {Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I},
+	booktitle = {}
+}
+```
 
 ### Requirements
 This code stack was developed with ROS1 in mind. In order to use, you are required to have:
@@ -76,24 +93,6 @@ catkin build
 ### Run a simulation experiment
 ```
 TODO
-```
-
-### Run a simulation experiment
-
-### Ackowledgment
-If you are using this code research and development for your publication, please cite:
-
-```
-@inproceedings{Manhaes_2016,
-	doi = {},
-	url = {},
-	year = 2022,
-	month = {},
-	publisher = {{IEEE}},
-	author = {Hung Tuan and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and Luis Sebastião and António Pascoal},
-	title = {Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I},
-	booktitle = {}
-}
 ```
 
 ### License
