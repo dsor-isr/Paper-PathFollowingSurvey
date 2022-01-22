@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>experiments_bringup</name>
+  <version>1.0.0</version>
+  <description>The package used to launch the experiments simulations</description>
+
+  <author email="hung.seadc@gmail.com">Hung Tuan</author>
+  <author email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</author>
+	  
+  <maintainer email="marcelo.jacinto@tecnico.ulisboa.pt">Marcelo Jacinto</maintainer>
+  <maintainer email="hung.seadc@gmail.com">Hung Tuan</maintainer>
+  <maintainer email="jquintas@gmail.com">Joao Quintas</maintainer>
+  <maintainer email="jcruz.pedro.cruz@tecnico.ulisboa.pt">Joao Cruz</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+</package>
