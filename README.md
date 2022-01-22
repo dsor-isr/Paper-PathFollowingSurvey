@@ -152,5 +152,11 @@ The C++ code that implements the paths equations can be found at the package:
 medusa_base/medusa_planning/dsor_paths
 ```
 
+### Path Following Coders
+- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
+- Hung Tuan <nguyen.hung@tecnico.ulisboa.pt>
+- João Quintas <jquintas@gmail.com>
+- João Cruz <joao.pedro.cruz@tecnico.ulisboa.pt>
+
 ### License
 This repository is open-sourced under the MIT license. See the [LICENSE](LICENSE) file for details.
