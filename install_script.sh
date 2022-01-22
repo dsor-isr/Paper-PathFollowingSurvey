@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Install the Python requirements:
 pip3 install --user numpy pandas matplotlib scipy sklearn rospkg catkin_pkg future joystick-controller
 
