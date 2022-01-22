@@ -1,3 +1,6 @@
 [submodule "medusa_base"]
 	path = medusa_base
 	url = git@github.com:dsor-isr/medusa_base.git
+[submodule "medusa_gazebo"]
+	path = medusa_gazebo
+	url = git@github.com:dsor-isr/medusa_gazebo.git
