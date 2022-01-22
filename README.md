@@ -1,11 +1,15 @@
 # Paper: Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I
 This repository implements a simulation playground for performing path following experiments with the Medusa clas of marine vehicles. It implements the algorithms described in the survey paper "Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I".
 
+<p align = "center">
+<img src="img/Demo1.gif" width = "426" height = "240" border="5" />
+</p>
+
 ### Ackowledgment
 If you are using this code research and development for your publication, please cite:
 
 ```
-@inproceedings{Manhaes_2016,
+@inproceedings{Hung_tuan,
 	doi = {},
 	url = {},
 	year = 2022,

@@ -40,10 +40,10 @@ addons/console_server:
 nav/filter:
     node_frequency: 10      # ROS node rate
     topics:
-        subscribers: [       # reset, position topic, velocity topic and orientation and acceleration (optional) topic
-            "/myellow/nav/reset", "/myellow/measurement/position", "/myellow/measurement/velocity", "/myellow/measurement/orientation"]
-        publishers: [        # state topic, debug topic
-            "/myellow/nav/filter/state", "/myellow/nav/filter/debug"]     
+        # reset, position topic, velocity topic and orientation and acceleration (optional) topic
+        subscribers: ["/myellow/nav/reset", "/myellow/measurement/position", "/myellow/measurement/velocity", "/myellow/measurement/orientation"]
+        # state topic, debug topic
+        publishers: ["/myellow/nav/filter/state", "/myellow/nav/filter/debug"]     
     topics_dr:
        velocity: "/myellow/measurement/velocity"
        orientation: "/myellow/measurement/orientation"

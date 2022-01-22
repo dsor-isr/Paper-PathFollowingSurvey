@@ -1,0 +1,206 @@
+## --------------------------- ## 
+#  medusa_addons                #
+## --------------------------- ## 
+addons/console_path_parser:
+  node_frequency: 5
+  topics:
+    subscribers: 
+      Mission_String: /mvector/addons/Mission_String
+      state: /mvector/nav/filter/state
+      flag: /mvector/Flag
+    publishers:
+      Path_Section: /mvector/addons/path_section
+      Formation: /mvector/addons/formation
+      biased_formation: /mvector/addons/biased_formation
+      WPRef: /mvector/addons/WPRef
+      DepthRef: /mvector/ref/depth
+      AltRef: /mvector/ref/altitude
+      FullMission: /mvector/addons/full_mission
+    services:
+      reset_path: "/mvector/ResetPath"
+      arc2d_path: "/mvector/SpawnArc2DPath"
+      line_path: "/mvector/SpawnLinePath"
+      pf_start: "/mvector/PFStart"
+      pf_stop: "/mvector/PFStop"
+      set_speed: "/mvector/SetConstVdVehicle"
+
+addons/console_server:
+  topics:
+    services:
+      wp_standard: "/mvector/controls/send_wp_standard"
+      wp_loose: "/mvector/controls/send_wp_loose"
+      wp_heading: "/mvector/controls/send_wp_heading"
+    console:
+      waypoint: "wp_standard"
+
+## --------------------------- ## 
+#  medusa_nav                   #
+## --------------------------- ## 
+### Sensor mvector for the frame "odom"
+nav/filter:
+  node_frequency: 10      # ROS node rate
+  topics:
+    # reset, position topic, velocity topic and orientation and acceleration (optional) topic
+    subscribers: ["/mvector/nav/reset", "/mvector/measurement/position", "/mvector/measurement/velocity", "/mvector/measurement/orientation"]
+     # state topic, debug topic
+    publishers: ["/mvector/nav/filter/state", "/mvector/nav/filter/debug"]     
+  topics_dr:
+    velocity: "/mvector/measurement/velocity"
+    orientation: "/mvector/measurement/orientation"
+    true_state: "/mvector/nav/filter/state"
+    flag: "/mvector/Flag"
+    dead_reckoning: "/mvector/nav/filter/state_dr"
+    dead_reckoning_console: "/mvector/State_dr"
+  services_dr:
+    reset_filter_dr: "/mvector/nav/reset_filter_dr"
+
+### Converting sensor_msgs::NavSatFix to medusa_msgs::Measurement data type
+nav/gnss2utm:
+  node_frequency: 10
+  topics:
+    subscribers: [ "/mvector/sensors/gnss" ]
+    publishers: [ "/mvector/measurement/position" ]
+    ground_truth: "/mvector/State_gt"
+  services:
+    enable_gps: "/mvector/sensor/enable_gps"
+
+nav/auvstate2mstate:
+  node_frequency: 10
+  topics:
+      subscribers: [ "/mvector/nav/filter/state", "/mvector/drivers/inside_pressure/data", "/mvector/sensors/gnss" ]
+      publishers:  [ "/mvector/State" ]
+
+## --------------------------- ## 
+#  medusa_control               #
+## --------------------------- ## 
+
+### Static Thruster Allocation
+controls/static_thruster_allocation:
+  topics:
+    subscribers:
+      thrust_body_request: "/mvector/thrust_body_request"
+    publishers:
+      thrusters: "/mvector/thrusters/rpm_command"
+
+### Inner Loops PID
+controls/inner_loops_pid:
+  # ROS node rate 
+  node_frequency: 10.0 # Time parameters
+  # ROS Topics
+  topics:
+    subscribers:
+      yaw: "/mvector/ref/yaw"
+      pitch: "/mvector/ref/pitch"
+      roll: "/mvector/ref/roll"
+      yaw_rate: "/mvector/ref/yaw_rate"
+      pich_rate: "/mvector/ref/pitch_rate"
+      roll_rate: "/mvector/ref/roll_rate"
+      surge: "/mvector/ref/surge"
+      sway: "/mvector/ref/sway"
+      heave: "/mvector/ref/heave"
+      depth: "/mvector/ref/depth"
+      altitude: "/mvector/ref/altitude"
+      altitude_safety: "/mvector/ref/altitude_safety"
+      depth_safety: "/mvector/ref/depth_safety"
+      state: "/mvector/nav/filter/state"
+    publishers:
+      thrust_body_request: "/mvector/thrust_body_request"
+
+### Way Point
+controls/waypoint:
+  node_frequency: 10.0
+  topics:
+    publishers:
+      yaw_ref: "/mvector/ref/yaw"
+      yaw_rate_ref: "/mvector/ref/yaw_rate"
+      u_ref: "/mvector/ref/surge"
+      v_ref: "/mvector/ref/sway"
+      flag: "/mvector/Flag"
+    subscribers:
+      flag: "/mvector/Flag"
+      state: "/mvector/nav/filter/state"
+    services:
+      wp_standard: "/mvector/controls/send_wp_standard"
+      wp_loose: "/mvector/controls/send_wp_loose"
+      wp_heading: "/mvector/controls/send_wp_heading"
+
+### Path Following
+controls/path_following:
+  node_frequency: 10.0
+  flag: "/mvector/Flag"
+  topics:
+    subscribers:
+      state: "/mvector/nav/filter/state"
+      path: "/mvector/PathData"
+      vc: "/mvector/PF/vc"
+    publishers:
+      # Publishers for linear motion
+      surge: "/mvector/ref/surge"
+      sway: "/mvector/ref/sway"
+      heave: "/mvector/ref/heave"
+
+      # Publishers for angular motion
+      roll: "/mvector/ref/roll"
+      roll_rate: "/mvector/ref/roll_rate"
+      pitch: "/mvector/ref/pitch"
+      pitch_rate: "/mvector/ref/pitch_rate"
+      yaw: "/mvector/ref/yaw"
+      yaw_rate: "/mvector/ref/yaw_rate"
+
+      # Publishers for the virtual target
+      rabbit: "/mvector/Gamma"
+      
+      # Observer for the currents
+      observer:
+          x: "/mvector/current/x"
+          y: "/mvector/current/y"
+
+      # Publish info for plots
+      pfollowing_debug: "mvector/pfollowing/debug"
+    # Define here the service names to switch between controllers 
+    services:
+      # Service names to start and stop the path following algorithm
+      start_pf: "/mvector/PFStart"
+      stop_pf: "/mvector/PFStop"
+      updates_gains_pf: "/mvector/PFUpdateGains"
+      reset_vt_pf: "/mvector/ResetVT"
+
+      # Service names to switch the path following algorithm
+      marcelo_pf: "/mvector/PFSetMarcelo"
+      aguiar_pf: "/mvector/PFSetAguiar"
+      brevik_pf: "/mvector/PFSetBrevik"
+      fossen_pf: "/mvector/PFSetFossen"
+      romulo_pf: "/mvector/PFSetRomulo"
+      lapierre_pf: "/mvector/PFSetLapierre"
+      pramod_pf: "/mvector/PFSetPramod"
+      samson_pf: "/mvector/PFSetSamson"
+      # Service names related to the path
+      reset_path: "/mvector/ResetPath"
+      set_path_mode: "/mvector/SetMode"
+      # Service names related to the waypoint
+      wp_standard: "/mvector/controls/send_wp_standard"
+
+## --------------------------- ## 
+#  medusa_planning              #
+## --------------------------- ##
+planning/dsor_paths:
+  node_frequency: 10.0
+  frame_id: "Path_frame"
+  topics:
+    subscribers:
+      gamma: "/mvector/Gamma"
+      vehicle_state: "/mvector/nav/filter/state"
+    publishers:
+      path_data: "/mvector/PathData"
+      virtual_target_state: "/mvector/Virtual/State"
+    # Services for constructing a path
+    services:
+      reset_path: "/mvector/ResetPath"
+      set_mode: "/mvector/SetMode"
+      arc2d_path: "/mvector/SpawnArc2DPath"
+      bernoulli_path: "/mvector/SpawnBernoulliPath"
+      circle2d_path: "/mvector/SpawnCircle2DPath"
+      line_path: "/mvector/SpawnLinePath"
+      speed:
+        const_rabbit_speed: "/mvector/SetConstVdRabbit"
+        const_vehicle_speed: "/mvector/SetConstVdVehicle"
