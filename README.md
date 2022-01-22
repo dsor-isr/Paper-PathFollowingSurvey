@@ -106,8 +106,25 @@ roslaunch experiments_bringup start_gazebo_simulation.launch name:=myellow
 
 - Start a pre-defined path following mission. The name of the vehicle must match the previous one. The supported paths in this demo are 'bernoulli' and 'lawn_mower'.
 ```
-roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bernoulli
+roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bernoulli controller_type:=aguiar
 ```
+
+Supported Vehicles:
+- myellow
+- mvector
+
+Supported Controllers:
+- samson 
+- lapierre
+- aguiar
+- fossen
+- brevik
+- romulo
+- pramod
+
+Supported Paths:
+- lawn_mower
+- bernoulli
 
 ### License
 This repository is open-sourced under the MIT license. See the [LICENSE](LICENSE) file for details.
