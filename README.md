@@ -155,6 +155,7 @@ medusa_base/medusa_planning/dsor_paths
 ### Literature Revision and Theoretical Overview
 - Hung Tuan <nguyen.hung@tecnico.ulisboa.pt>
 - Francisco Rego <ffcrego@gmail.com>
+- Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
 - Professor António Pascoal
 
 ### Path Following Coders
