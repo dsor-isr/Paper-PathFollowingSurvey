@@ -86,6 +86,9 @@ mkdir catkin_ws
 cd catkin_ws
 git clone --recursive git@github.com:dsor-isr/medusa_base.git src
 
+# Source the most up to data bashrc file
+source ~/.bashrc
+
 # Compile the code using catkin build
 catkin build
 ```
