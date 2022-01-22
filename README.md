@@ -98,8 +98,15 @@ catkin build
 ```
 
 ### Run a simulation experiment
+
+- Start the 3D gazebo simulation along with all the control and navigation algorithms. The 2 supported vehicles in this demo are 'myellow' and 'mvector'. The latter can be actuated in 'surge', 'sway' and 'yaw/yaw-rate', while the 'myellow' vehicle can only be controlled in 'surge' and 'yaw/yaw-rate'.
 ```
-TODO
+roslaunch experiments_bringup start_gazebo_simulation.launch name:=myellow
+```
+
+- Start a pre-defined path following mission. The name of the vehicle must match the previous one. The supported paths in this demo are 'bernoulli' and 'lawn_mower'.
+```
+roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bernoulli
 ```
 
 ### License
