@@ -1,19 +1,22 @@
 <?xml version="1.0"?>
 <launch>
 
-    <arg name="name"            default="myellow" />   <!-- Accepted: myellow, mvector-->
-    <arg name="path_type"       default="bernoulli" /> <!-- Accepted: bernoulli, lawn_mower -->
-    <arg name="controller_type" default="aguiar" />    <!-- Accepted: aguiar, -->
+    <!-- Argument to set the -->
+    <arg name="name"                  default="myellow" />   <!-- Accepted: myellow, mvector-->
+    <arg name="path_type"             default="bernoulli" /> <!-- Accepted: bernoulli, lawn_mower -->
+    <arg name="controller_type"       default="aguiar" />    <!-- Accepted: aguiar, lapierre, samson, fossen, brevik, romulo, pramod-->
+    <arg name="vehicle_speed_profile" default="0.5" />       <!-- Desired speed for the vehicle (in m/s) -->
 
-    <!-- UTM coordinates where the vehicle starts in the map (used to create a path centered around these coordinates) -->
+    <!-- UTM coordinates where the inertial frame is located map/aka GPS coordinates (used to create a path centered around these coordinates) -->
     <arg name="utm_north"       default="4290794.432828876" />
     <arg name="utm_east"        default="491936.56077393395" />
 
     <!-- Launch the node that call the services to start/stop a path following mission -->
-    <node pkg="experiments_bringup" type="mission_launcher.py" name="MissionLauncher" respawn="false" output="screen">
-        <param name="vehicle_name"      value="$(arg name)"/>
-        <param name="path_type"         value="$(arg path_type)" />
-        <param name="controller_type"   value="$(arg controller_type)" />
-    </node>
+    <param name="vehicle_name"      value="$(arg name)"/>
+    <param name="path_type"         value="$(arg path_type)" />
+    <param name="controller_type"   value="$(arg controller_type)" />
+    <param name="utm_north"         value="$(arg utm_north)" />
+    <param name="utm_east"          value="$(arg utm_east)" />
+    <node pkg="experiments_bringup" type="mission_launcher.py" name="MissionLauncher" respawn="false" output="screen" />
 
 </launch>

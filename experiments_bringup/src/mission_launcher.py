@@ -11,6 +11,7 @@ if __name__ == "__main__":
     vehicle_name = rospy.get_param('vehicle_name', 'myellow')
     path_type = rospy.get_param('path_type', 'bernoulli')
     controller_type = rospy.get_param('controller_type', 'aguiar')
+    vehicle_speed = float(rospy.get_param('vehicle_speed_profile', 0.5))
 
     # Get the UTM coordinates where the inertial frame is located
     utm_north = float(rospy.get_param('utm_north', '4290794.432828876'))
@@ -29,15 +30,12 @@ if __name__ == "__main__":
 
     # Spawn a path for the vehicle to follow
     if path_type == 'lawn_mower':
-        pth.spawn_lawn_mower(0.0, vehicle_name)
+        pth.spawn_lawn_mower(center_x=utm_north-40, center_y=utm_east-50, z=0.0, vehicle_name=vehicle_name, speed=vehicle_speed)
     elif path_type == 'bernoulli':
-        pth.spawn_bernoulli(radius=30, center_x=utm_north-30.0, center_y=utm_north-30.0, z=0.0, vehicle_name=vehicle_name)
+        pth.spawn_bernoulli(radius=30, center_x=utm_north-30.0, center_y=utm_east-30.0, z=0.0, vehicle_name=vehicle_name, speed=vehicle_speed)
     else:
         rospy.WARN('Desired path only supports lawn_mower or bernoulli in this demo!')
         rospy.signal_shutdown('Desired path not supported')
-
-    # Ask for the desired speed for the vehicle
-    pth.spawn_const_speed(0.5, vehicle_name)
 
     # Check if the required controller is in the controllers supported list:
     if controller_type not in ctl.controllers_medusa_dic.keys():

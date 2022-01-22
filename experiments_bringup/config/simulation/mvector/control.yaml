@@ -118,8 +118,9 @@ path_following:
       k_pos: 0.5
       k_currents: 0.5
     romulo:
-      ke: [0.05, 0.0, 0.0, 0.05]
-      kz: 0.2
+      ke: [1.0, 0.0, 
+           0.0, 1.0]
+      kz: 0.5
     pramod:
       kp: 0.01
       kd: 0.14
