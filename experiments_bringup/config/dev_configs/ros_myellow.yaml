@@ -175,6 +175,7 @@ controls/path_following:
             lapierre_pf: "/myellow/PFSetLapierre"
             pramod_pf: "/myellow/PFSetPramod"
             samson_pf: "/myellow/PFSetSamson"
+            relative_heading_pf: "/myellow/PFSetRelativeHeading"
             # Service names related to the path
             reset_path: "/myellow/ResetPath"
             set_path_mode: "/myellow/SetMode"

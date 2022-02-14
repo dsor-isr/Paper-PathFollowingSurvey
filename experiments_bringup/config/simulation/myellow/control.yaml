@@ -139,3 +139,9 @@ path_following:
       k3: 0.3
       theta: 0.8
       k_delta: 1.0
+    relative_heading:
+      kx: 0.5
+      ky: 0.1
+      kz: 0.2
+      yaw_offset: 0.785
+      p_sat: [1.0, 1.0] #x, y

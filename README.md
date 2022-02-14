@@ -5,7 +5,7 @@ The equivalent matlab control toolbox developed in the scope of this paper is av
 
 
 <p align = "center">
-<img src="img/Demo1.gif" width = "426" height = "240" border="5" />
+<img src="doc/img/Demo1.gif" width = "426" height = "240" border="5" />
 </p>
 
 ### Ackowledgment
@@ -40,7 +40,7 @@ pip3 install --user numpy pandas matplotlib scipy sklearn rospkg catkin_pkg futu
 
 - Install C++ (apt-get) requirements:
 ```
-sudo apt-get install python3-catkin-tools libgeographic-dev ros-noetic-geographic-msgs libxmlrcpp-dev librosconsole-dev libudev-dev libusb-1.0-0-dev ros-noetic-geodesy -y
+sudo apt-get install python3-catkin-tools libgeographic-dev ros-noetic-geographic-msgs librosconsole-dev libudev-dev libusb-1.0-0-dev ros-noetic-geodesy -y
 ```
 
 - Install Geographiclib 1.50.1 (C++ library):
@@ -129,6 +129,7 @@ roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bern
 		<li>brevik (method 4)</li>
 		<li>aguiar (method 6)</li>
 		<li>romulo (method 6, but control surge and sway and leaves yaw as degree of freedom)</li>
+		<li>relative_heading (method 6, but we can specify the heading relative to the tagent to the path)</li>
 		<li>pramod (like fossen, but with integral term)</li>
 	</ul>
 </details>
@@ -140,6 +141,8 @@ roslaunch experiments_bringup start_mission.launch name:=myellow path_type:=bern
 		<li>lawn_mower</li>
 	</ul>
 </details>
+
+Note: If running the last command does not seem to work, check if the vehicle name selected is the same as the one in the first launch command.
 
 ### Implementation Structure
 The C++ code that implements the controllers logic can be found at the package:

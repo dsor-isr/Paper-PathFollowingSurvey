@@ -14,7 +14,7 @@ processes:
       dependencies:
             []
     - name: 'bags'
-      launch_on_startup: false
+      launch_on_startup: true
       delay_before_start: 0.0
       cmd: 'roslaunch medusa_bringup bags.launch'
       args:

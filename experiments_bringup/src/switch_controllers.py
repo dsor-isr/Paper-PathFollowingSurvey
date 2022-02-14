@@ -12,7 +12,8 @@ controllers_medusa_dic = {'aguiar': '/PFSetAguiar',
                           'fossen': '/PFSetFossen',
                           'pramod': '/PFSetPramod',
                           'romulo': '/PFSetRomulo',
-                          'brevik': '/PFSetBrevik'}
+                          'brevik': '/PFSetBrevik',
+                          'relative_heading': 'PFSetRelativeHeading'}
 
 # Method to set the desired controller for a medusa
 def spawn_medusa_controller(control_algorithm: str, vehicle_name: str):
