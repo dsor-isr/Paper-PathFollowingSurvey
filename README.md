@@ -17,9 +17,9 @@ If you are using this code research and development for your publication, please
 	url = {},
 	year = 2022,
 	month = {},
-	publisher = {{IEEE}},
-	author = {Hung Tuan and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and Luis Sebastião and António Pascoal},
-	title = {Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles: Part I},
+	publisher = {{}},
+	author = {Hung Tuan and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and David Souto and André Potes and Luis Sebastião and António Pascoal},
+	title = {Theory, simulations, and experiments of path following guidance strategies for autonomous robotic vehicles},
 	booktitle = {}
 }
 ```
@@ -119,13 +119,15 @@ medusa_base/medusa_planning/dsor_paths
 - Hung Tuan <nguyen.hung@tecnico.ulisboa.pt>
 - Francisco Rego <ffcrego@gmail.com>
 - Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
-- Professor António Pascoal
+- Professor António Pascoal <antonio@isr.tecnico.ulisboa.pt>
 
 ### Path Following Coders
 - Marcelo Jacinto <marcelo.jacinto@tecnico.ulisboa.pt>
 - Hung Tuan <nguyen.hung@tecnico.ulisboa.pt>
 - João Quintas <jquintas@gmail.com>
 - João Cruz <joao.pedro.cruz@tecnico.ulisboa.pt>
+- David Souto <david.souto@tecnico.ulisboa.pt>
+- André Potes <andre.potes@gmail.com>
 
 ### Mechanics for Water Trials with the Real Vehicles
 - Luis Sebastião
