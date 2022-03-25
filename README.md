@@ -1,4 +1,4 @@
-# Paper: A review on path following control strategies for autonomous robotic vehicles: theory, simulations, and experiments
+# Paper - A review on path following control strategies for autonomous robotic vehicles: theory, simulations, and experiments
 This repository implements a simulation playground for performing path following experiments with the Medusa clas of marine vehicles. It implements the algorithms described in the survey paper "A review of path following control strategies for autonomous robotic vehicles: theory, simulations, and experiments".
 
 The equivalent matlab control toolbox developed in the scope of this paper is available at [Github Matlab-toolbox](https://github.com/hungrepo/path-following-Matlab/tree/master/PF-toolbox).
