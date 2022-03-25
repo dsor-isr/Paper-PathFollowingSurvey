@@ -130,7 +130,7 @@ medusa_base/medusa_planning/dsor_paths
 - André Potes <andre.potes@gmail.com>
 
 ### Mechanics for Water Trials with the Real Vehicles
-- Luis Sebastião
+- Luis Sebastião <l.sebastiao@isr.tecnico.ulisboa.pt>
 
 ### License
 This repository is open-sourced under the MIT license. See the [LICENSE](LICENSE) file for details.
