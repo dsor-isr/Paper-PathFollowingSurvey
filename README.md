@@ -18,7 +18,7 @@ If you are using this code research and development for your publication, please
 	year = 2022,
 	month = {},
 	publisher = {{}},
-	author = {Hung Tuan and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and David Souto and André Potes and Luis Sebastião and António Pascoal},
+	author = {Nguyen Hung and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and David Souto and André Potes and Luis Sebastião and António Pascoal},
 	title = {A review of path following control strategies for autonomous robotic vehicles: theory, simulations, and experiments},
 	booktitle = {}
 }
