@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Flags to select GUI, frame of reference, vehicle and world-->
+    <arg name="gui"            default="true"/>
+    <arg name="use_sim_time"   default="false"/>
+    <arg name="world_frame"    default="world"/>
+
+    <!-- Choose the world to launch (default is expo_lisbon)-->
+    <arg name="folder" default="expo_lisbon_worlds" />
+    <arg name="world"  default="expo_lisbon" />
+
+    <!-- Select the gazebo world -->
+    <include file="$(find farol_gazebo_bringup)/launch/world.launch">
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="world_frame" value="$(arg world_frame)"/>
+        <arg name="folder" value="$(arg folder)"/>
+        <arg name="world"  value="$(arg world)"/>
+    </include>
+</launch>

@@ -3,6 +3,7 @@
 
     <!-- Argument to set the -->
     <arg name="name"                  default="myellow" />   <!-- Accepted: myellow, mvector-->
+    <arg name="id"                    default="0" />         <!-- Accepted: integer values-->
     <arg name="path_type"             default="bernoulli" /> <!-- Accepted: bernoulli, lawn_mower -->
     <arg name="controller_type"       default="aguiar" />    <!-- Accepted: aguiar, lapierre, samson, fossen, brevik, romulo, pramod-->
     <arg name="vehicle_speed_profile" default="0.5" />       <!-- Desired speed for the vehicle (in m/s) -->
@@ -12,7 +13,8 @@
     <arg name="utm_east"        default="491936.56077393395" />
 
     <!-- Launch the node that call the services to start/stop a path following mission -->
-    <param name="vehicle_name"      value="$(arg name)"/>
+    <param name="vehicle"           value="$(arg name)"/>
+    <param name="ID"                value="$(arg id)"/>
     <param name="path_type"         value="$(arg path_type)" />
     <param name="controller_type"   value="$(arg controller_type)" />
     <param name="utm_north"         value="$(arg utm_north)" />

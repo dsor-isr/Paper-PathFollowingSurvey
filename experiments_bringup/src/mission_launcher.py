@@ -8,7 +8,8 @@ import switch_paths as pth
 if __name__ == "__main__":
     
     # Get the name of the vehicle being used, controller and path from the ROS parameter server
-    vehicle_name = rospy.get_param('vehicle_name', 'myellow')
+    vehicle = rospy.get_param('vehicle_name', 'myellow')
+    ID = rospy.get_param('id', '0')
     path_type = rospy.get_param('path_type', 'bernoulli')
     controller_type = rospy.get_param('controller_type', 'aguiar')
     vehicle_speed = float(rospy.get_param('vehicle_speed_profile', 0.5))
@@ -17,6 +18,8 @@ if __name__ == "__main__":
     utm_north = float(rospy.get_param('utm_north', '4290794.432828876'))
     utm_east = float(rospy.get_param('utm_east', '491936.56077393395'))
     
+    vehicle_name = vehicle + ID
+
     # Wait for the required path services to start
     for service in pth.path_services_required:
         rospy.wait_for_service(vehicle_name + service)

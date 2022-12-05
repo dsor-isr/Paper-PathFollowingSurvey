@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Parameters and Arguments -->
+    <arg name="name"               default="mvector" />            <!-- Name of the vehicle being launched --> 
+    <arg name="id"                 default="0" />                  <!-- Number of the vehicle -->
+    <arg name="config_package"     default="experiments_bringup"/>  <!-- Name of the package where the configuration files are stored -->
+    <arg name="folder"             default="vehicles" />           <!-- Name of the folder for the configuration files -->     
+
+    <arg name="dollar" value="$" />
+    <arg name="config_package_path"  value="(find $(arg config_package)" />
+
+    <!-- Launch the Processes in process_gazebo -->
+    <group ns="$(arg name)$(arg id)">
+
+        <node pkg="farol_bringup" type="farol_bringup_node" name="farol_bringup" respawn="false" output="screen">
+            <rosparam command="load" file="$(arg dollar)$(arg config_package_path))/config/$(arg folder)/$(arg name)/process.yaml"/>
+            <param name="name"                  value="$(arg name)"/>
+            <param name="vehicle_id"            type="int" value="$(arg id)" />
+            <param name="config_package_path"   value="$(arg config_package_path)"/>
+            <param name="folder"                value="$(arg folder)" />
+            <param name="namespace"             value="true"/>
+            <param name="process_state_publish_rate" type="double" value="0.33" />
+        </node>
+    </group>
+</launch>
