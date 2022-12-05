@@ -1,7 +1,0 @@
-console_path_parser:
-    path_folder: "../paths_from_console" 
-    vehicle_id: 3
-
-console_server:
-    PORT: 7080
-    ROOT_NAMESPACE: true
