@@ -1,0 +1,136 @@
+processes:
+    - name: 'load' # Set to true to load all parameters need to run the stack
+      launch_on_startup: true
+      delay_before_start: 0.0
+      cmd: 'roslaunch farol_bringup load_parameters.launch'
+      args: # set to true when you want to add or override any default parameter(s)
+            - common:= false
+            - simulation:= false
+            - addons:= false
+            - navigation:= false
+            - controllers:= false
+            - cooperative:= false
+            - comms:= false
+            - acoustic_data:= false
+            - planning:= false 
+      dependencies:
+            []
+    
+    - name: 'simulation' # Set to true to use the simple simulation
+      launch_on_startup: false
+      delay_before_start: 1.0
+      cmd: 'roslaunch farol_bringup sim.launch'
+      args:
+            - dynamics:= true
+            - sensors:= true
+      dependencies:
+            []
+    
+    - name: 'gazebo_simulation' # Set to true to use the gazebo simulator
+      launch_on_startup: true
+      delay_before_start: 1.0
+      cmd: 'roslaunch farol_gazebo_bringup vehicle_model.launch'
+      args:
+            - x:= 0.0
+            - y:= 0.0
+            - z:= 0.0
+            - roll:= 0.0
+            - pitch:= 0.0
+            - yaw:= 0.0
+            - mode:= default
+      dependencies:
+            []
+    
+    - name: 'bags' # Set to true to automatically save all rostopics in rosbags
+      launch_on_startup: false
+      delay_before_start: 2.0
+      cmd: 'roslaunch farol_bringup bags.launch'
+      args:
+            - prefix:= gazebo
+            - onebag:= true
+      dependencies:
+            []
+    
+    - name: 'tfs'
+      launch_on_startup: true
+      delay_before_start: 3.0
+      cmd: 'roslaunch farol_bringup simulation_tfs.launch'
+      args:
+            - broadcast_tf:= true
+      dependencies:
+            []
+    
+    - name: 'addons' # Set to true to use several addons like operation console and remote controller
+      launch_on_startup: true 
+      delay_before_start: 4.0
+      cmd: 'roslaunch farol_bringup addons.launch'
+      args:
+            - console_path_parser:= true
+            - console_server:= true
+            - rosbridge_server:= false
+            - remote_controller:= false
+            - joystick:= gamesir
+            - joystick_mode:= bluetooth
+      dependencies:
+            []
+    
+    - name: 'navigation' # Set to true to use the Dsor Navigation Filter
+      launch_on_startup: true
+      delay_before_start: 5.0
+      cmd: 'roslaunch farol_bringup nav.launch'
+      args:
+            - filter:= true
+            - gnss2utm:= true
+            - gnss2utmoutlier:= false
+            - auvstate2mstate:= true
+            - usbl2pos:= true
+      dependencies:
+            []
+    
+    - name: 'controllers' # Set to true to enable Dsor inner and outer loop controllers
+      launch_on_startup: true
+      delay_before_start: 6.0
+      cmd: 'roslaunch farol_bringup controls.launch'
+      args:
+            - static_thruster_allocation:= true
+            - inner_loops_pid:= true
+            - waypoint:= true
+            - path_following:= true
+            - vehicle_stabilizer:= false
+      dependencies:
+            []
+    
+    - name: 'cooperative' # Set to true to enable cooperative missions
+      launch_on_startup: true
+      delay_before_start: 7.0
+      cmd: 'roslaunch farol_bringup cooperative.launch'
+      args:
+            - cpf_control:=true
+            - cpf_wifi_receiver:=true
+            - cpf_wifi_broadcaster:=true
+      dependencies:
+            []
+    
+    - name: 'acomms' # Set to true to enable acoustic communications
+      launch_on_startup: false
+      delay_before_start: 8.0
+      cmd: 'roslaunch farol_bringup comms.launch'
+      args:
+            - dmac:= false
+            - data_serializer:= true
+            - pinger:= false
+            - replier:= false
+            - pos2simmodem:= false
+            - dmac2farol:= true
+            - gnss2state:= true
+      dependencies:
+            []
+    
+    - name: 'planning' # Set to true to execute default paths (lines, arc, bernoulli)
+      launch_on_startup: true
+      delay_before_start: 9.0
+      cmd: 'roslaunch farol_bringup planning.launch'
+      args:
+            - dsor_paths:= true
+      dependencies:
+            []

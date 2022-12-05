@@ -1,0 +1,8 @@
+addons/console_server:
+    PORT: 7080
+
+cooperative/cpf_wifi_server:
+    broadcast_port: 2808
+
+cooperative/cpf_wifi_client:
+    broadcast_port: 2808
