@@ -59,7 +59,7 @@ cd catkin_ws
 git clone --recursive https://github.com/dsor-isr/Paper-PathFollowingSurvey.git src
 
 # Run the following lines to add elements to the .bashrc file
-echo "export MEDUSA_SCRIPTS=$(find ${ROS_WORKSPACE}/src/ -type d -iname medusa_scripts | head -n 1)" >> ~/.bashrc
+echo "export FAROL_SCRIPTS=$(find ${ROS_WORKSPACE}/src/ -type d -iname farol_scripts | head -n 1)" >> ~/.bashrc
 echo "source ${ROS_WORKSPACE}/devel/setup.bash" >> ~/.bashrc
 
 # Source the most up to data bashrc file
