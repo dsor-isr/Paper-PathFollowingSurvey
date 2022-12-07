@@ -24,8 +24,6 @@ doi = {https://doi.org/10.1002/rob.22142},
 url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.22142},
 eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/rob.22142}
 }
-
-
 ```
 
 ### Requirements
