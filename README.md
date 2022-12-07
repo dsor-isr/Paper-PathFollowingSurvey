@@ -12,16 +12,20 @@ The equivalent matlab control toolbox developed in the scope of this paper is av
 If you are using this code research and development for your publication, please cite:
 
 ```
-@inproceedings{Hung_tuan,
-	doi = {},
-	url = {},
-	year = 2022,
-	month = {},
-	publisher = {{}},
-	author = {Nguyen Hung and Francisco Rego and Joao Quintas and Joao Cruz and Marcelo Jacinto and David Souto and André Potes and Luis Sebastião and António Pascoal},
-	title = {A review of path following control strategies for autonomous robotic vehicles: theory, simulations, and experiments},
-	booktitle = {}
+@article{https://doi.org/10.1002/rob.22142,
+author = {Hung, Nguyen and Rego, Francisco and Quintas, Joao and Cruz, Joao and Jacinto, Marcelo and Souto, David and Potes, Andre and Sebastiao, Luis and Pascoal, Antonio},
+title = {A review of path following control strategies for autonomous robotic vehicles: Theory, simulations, and experiments},
+journal = {Journal of Field Robotics},
+volume = {n/a},
+number = {n/a},
+pages = {},
+keywords = {autonomous cars, autonomous marine vehicles (AMVs), autonomous surface vehicles (ASVs), control, guidance, over-actuated vehicles, path following, under-actuated vehicles, underwater autonomous vehicles (UAVs), unmanned aerial vehicles (UAVs), unmanned ground vehicles (UGVs)},
+doi = {https://doi.org/10.1002/rob.22142},
+url = {https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.22142},
+eprint = {https://onlinelibrary.wiley.com/doi/pdf/10.1002/rob.22142}
 }
+
+
 ```
 
 ### Requirements
